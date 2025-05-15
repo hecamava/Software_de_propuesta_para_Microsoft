@@ -1,0 +1,66 @@
+/******************************************************************************
+Trabajo en física en lenguaje C# los valores decimales se deben de poner con punto(.)
+no con coma
+
+*******************************************************************************/
+using System;
+using System.Linq;
+using System.Text;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+
+namespace trabajoenfisica
+{
+   public class Program
+   {
+
+static double ReadNumber(string nombre)   
+    {
+        double valor;
+       
+        while (true)
+        {
+            Console.Write($"Introduzca el valor de {nombre}: "); 
+            string input = Console.ReadLine();
+
+            if (double.TryParse(input, out valor))  
+            {
+                return valor;
+            }
+            else
+            {
+                Console.WriteLine("El valor ingresado no es un número, por favor introduzca un número válido.");
+            }
+        }
+    }  
+
+
+public static void trabajoenfisica(double fuerza_en_newtons,double distancia_en_metros,double angulo_en_grados) //double fuerza,double distancia,double angulo
+
+{
+ double trab1 = (fuerza_en_newtons * distancia_en_metros * Math.Cos(angulo_en_grados)); 
+ 
+    Console.WriteLine("");
+    Console.WriteLine("El resultado del trabajo es: " + trab1 + " julios"); 
+}
+
+
+static void Main()
+{ 
+
+ double fuerza_en_newtons;
+ double distancia_en_metros; 
+ double angulo_en_grados; 
+ fuerza_en_newtons = ReadNumber("fuerza_en_newtons");
+ distancia_en_metros = ReadNumber("distancia_en_metros");
+ angulo_en_grados = ReadNumber("angulo_en_grados");
+ trabajoenfisica(fuerza_en_newtons,distancia_en_metros,angulo_en_grados);
+
+ Console.ReadKey();
+}
+}  
+
+} 
+
+

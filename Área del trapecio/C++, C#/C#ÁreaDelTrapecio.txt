@@ -1,0 +1,58 @@
+/* Área y perímetro del trapecio en el lenguaje de programación C#*/
+
+using System;
+using System.Linq;
+using System.Text;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+
+namespace areadeltrapecio
+{
+   public class Program
+   {
+
+static double ReadNumber(string nombre)
+    {
+        double valor;
+        while (true)
+        {
+            Console.Write($"Introduzca el valor de {nombre}(en centímetros): "); // Usamos interpolación de cadenas
+            string input = Console.ReadLine();
+
+            if (double.TryParse(input, out valor))
+            {
+                return valor;
+            }
+            else
+            {
+                Console.WriteLine("El valor ingresado no es un número, por favor introduzca un número válido.");
+            }
+        }
+    }  
+
+
+public static void areadeltrapecio(double base1,double base2,double altura)
+
+{
+ double atrapec = ((base1+base2)/2)*altura;
+ Console.WriteLine("El área del trapecio es: " + atrapec + " cm²");                   
+}
+
+
+static void Main()
+{ 
+
+ double base1;
+ double base2;
+ double altura;
+ base1 = ReadNumber("base1");
+ base2 = ReadNumber("base2");
+ altura = ReadNumber("altura");
+ areadeltrapecio(base1,base2,altura);
+
+ Console.ReadKey();
+}
+}  
+
+}  

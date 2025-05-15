@@ -1,0 +1,39 @@
+/* Área del circulo con validador de solo números*/
+#include <iostream>
+#include <cmath>
+#include <limits>
+using namespace std;
+
+// FunciC3n para leer y validar un nC:mero
+double cin_number(const string& nombre)
+{
+	double valor;
+	while (true) {
+		cout << "Introduzca el valor del " << nombre << "(en centimetros): "<<endl;
+		if (cin >> valor) {
+			return valor;
+		} else {
+			cin.clear(); // limpia el error
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // descarta la entrada invC!lida
+			cout << "El valor ingresado no es un número, por favor introduzca un número válido." << endl;
+		}
+	}
+}
+
+//Función para resolver el area del circulo:
+void areadelacirculo(double radio)
+{
+    double pi = 3.1415926535897932384626433832795;
+	double acir = pi * pow(radio, 2);
+    cout << "El área del circulo es: " << acir << " cm²" << endl;
+}
+
+
+int main()
+{
+	double radio;
+	radio = cin_number("radio");
+	// Resolver la ecuación
+	areadelacirculo(radio);
+	return 0;
+}

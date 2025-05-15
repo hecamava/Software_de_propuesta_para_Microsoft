@@ -1,0 +1,42 @@
+/* Área del romboide con validador de solo números en el lenguaje de programación C++ */
+#include <iostream>
+#include <cmath>
+#include <limits>
+using namespace std;
+
+// Función para leer y validar un número
+double cin_number(const string& nombre)
+{
+	double valor;
+	while (true) {
+	    
+	  
+	    cout << "Introduzca el valor de la " << nombre << " (en centimetros): ";
+	
+		if (cin >> valor) {
+			return valor;
+		} else {
+			cin.clear(); // limpia el error
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // descarta la entrada inválida
+			cout << "El valor ingresado no es un número, por favor introduzca un número válido." << endl;
+		}
+	}
+}
+
+//Función para resolver el area del romboide:
+void areadelromboide(double base, double altura)
+{
+    double aromb = (base*altura);
+    cout << "El área del romboide es: " << aromb << " cm²" << endl;
+}
+
+
+int main()
+{
+	double base,altura;
+	base = cin_number("base");
+	altura = cin_number("altura");
+    areadelromboide(base,altura);
+
+	return 0;
+}

@@ -1,0 +1,65 @@
+/* Área-Altura-y-Perímetro-del-hexágono-en-C# con solo números*/
+
+using System;
+using System.Linq;
+using System.Text;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+
+namespace areaalturayperímetrodelhexágono
+{
+   public class Program
+   {
+
+static double ReadNumber(string nombre)
+    {
+        double valor;
+        while (true)
+        {
+            Console.Write($"Introduzca el valor de {nombre} (en centímetros): "); // Usamos interpolación de cadenas
+            string input = Console.ReadLine();
+
+            if (double.TryParse(input, out valor))
+            {
+                return valor;
+            }
+            else
+            {
+                Console.WriteLine("El valor ingresado no es un número, por favor introduzca un número válido.");
+            }
+        }
+    }  
+
+
+public static void areaalturayperimetrodelhexagono(double apotema,double lado)
+
+{
+ double perimetro = 6*lado; 
+ Console.WriteLine("");  
+ Console.WriteLine("El perímetro del hexagono es: " + perimetro + " cm");                   
+ 
+ double altura = 1.7320*lado;
+ Console.WriteLine("La altura del hexagono es: " + altura + " cm"); 
+ 
+ double areahexagono = ((6*lado*apotema)/2);
+ Console.WriteLine("El área del hexágono es: " + areahexagono + " cm²"); 
+ 
+
+}
+
+
+static void Main()
+{ 
+
+ double apotema;
+ double lado;
+ apotema = ReadNumber("apotema");
+ lado = ReadNumber("lado");
+ areaalturayperimetrodelhexagono(apotema,lado);
+
+ Console.ReadKey();
+}
+}  
+
+}

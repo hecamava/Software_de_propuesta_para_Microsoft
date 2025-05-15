@@ -1,0 +1,54 @@
+/* Área del cuadrado en el lenguaje de programación C#, con validador de números  */
+using System;
+using System.Linq;
+using System.Text;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+
+namespace areadelcuadrado
+{
+   public class Program
+   {
+
+static double ReadNumber(string nombre)
+    {
+        double valor;
+        while (true)
+        {
+            Console.Write($"Introduzca el valor de {nombre} (en centimetros): " ); // Usamos interpolación de cadenas
+            string input = Console.ReadLine();
+
+            if (double.TryParse(input, out valor))
+            {
+                return valor;
+            }
+            else
+            {
+                Console.WriteLine("El valor ingresado no es un número, por favor introduzca un número válido.");
+            }
+        }
+    }  
+
+
+public static void areadelcuadrado(double el_lado)
+
+{
+ double areadelcuadrado = Math.Pow(el_lado,2);
+ Console.WriteLine("El área del cuadrado es: " + areadelcuadrado + " cm²");                   
+
+}
+
+static void Main()
+{ 
+
+ double el_lado;
+ el_lado= ReadNumber("el_lado");
+
+ areadelcuadrado(el_lado);
+
+ Console.ReadKey();
+}
+}  
+
+} 

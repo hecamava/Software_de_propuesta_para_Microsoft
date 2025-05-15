@@ -1,0 +1,20 @@
+Sub areadelcuadrado()
+
+Dim ac As Double
+Dim lado As Double
+
+ac = (lado ^ 2)
+ 'double ac = pow(lado, 2);
+ 'Debug.Print ac
+  
+ MsgBox ("El área del cuadrado es = " & ac)
+
+End Sub
+
+///////////////***************//////////////////
+
+Sub solonumeros(ByVal KeyAscii)
+  If Not (KeyAscii >= 48 And KeyAscii <= 57) Then
+       KeyAscii = 0
+  End If
+End Sub

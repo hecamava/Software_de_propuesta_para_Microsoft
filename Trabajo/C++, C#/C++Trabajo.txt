@@ -1,0 +1,47 @@
+//* Trabajo en física con el lenguaje de programación C++ con solo números 
+//Los decimales que se deben de poner con punto */
+#include <iostream>
+#include <cmath>
+#include <limits>
+using namespace std;
+
+
+double cin_number(const string& nombre)
+{
+	double valor;
+	while (true) {
+		cout << "Introduzca el valor de " << nombre << ": ";
+		if (cin >> valor) {
+			return valor;
+		} else {
+			cin.clear(); 
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+			cout << "El valor ingresado no es un número, por favor introduzca un número válido." << endl;
+		}
+	}
+}
+
+void trabajoenfisica(double fuerza_en_newtons,double distancia_en_metros,double angulo_en_grados)
+{
+	
+	double trab1 = (fuerza_en_newtons * distancia_en_metros * cos(angulo_en_grados));
+	cout  << endl;
+    cout << "El resultado del trabajo(w) es: " << trab1 <<" julios" << endl;
+	
+}
+
+
+int main()
+{
+ 
+	double fuerza_en_newtons;
+	double distancia_en_metros;
+	double angulo_en_grados;
+	fuerza_en_newtons = cin_number("fuerza_en_newtons");
+	distancia_en_metros = cin_number("distancia_en_metros");
+	angulo_en_grados = cin_number("angulo_en_grados");
+	
+	trabajoenfisica(fuerza_en_newtons,distancia_en_metros,angulo_en_grados);
+
+	return 0;
+}

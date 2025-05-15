@@ -1,0 +1,82 @@
+/* Solucionario-función-cuadrática-en-C# con solo números*/
+
+using System;
+using System.Linq;
+using System.Text;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+
+namespace Solucionariofuncioncuadratica
+{
+public class Program
+{
+
+	static double ReadNumber(string nombre)
+	{
+		double valor;
+		while (true)
+		{
+			Console.Write($"Introduzca el valor de {nombre}: "); // Usamos interpolación de cadenas
+			string input = Console.ReadLine();
+
+			if (double.TryParse(input, out valor))
+			{
+				return valor;
+			}
+			else
+			{
+				Console.WriteLine("El valor ingresado no es un número, por favor introduzca un número válido.");
+			}
+		}
+	}
+
+
+	public static void Solucionariofuncioncuadratica(double a,double b,double c)
+	{
+
+		double discriminante = Math.Pow(b, 2) - 4 * a * c;
+
+
+		if (discriminante < 0) {
+			double parte_imaginaria = Math.Sqrt(-discriminante);
+			Console.WriteLine("");
+			Console.WriteLine("El valor de x1 es: (- " + b + " + " + parte_imaginaria + "i)/ " + (2*a));
+			Console.WriteLine("El valor de x2 es: (-" +b + " - " + parte_imaginaria + "i)/ " + (2*a));
+			double raiz0 = Math.Abs(Math.Sqrt(-discriminante));
+            double x1r = (-b + raiz0) / (2 * a);
+            double x2r = (-b - raiz0) / (2 * a);
+           	Console.WriteLine("El valor de x1 expresado con numeros reales es: "+ x1r );
+			Console.WriteLine("El valor de x2 expresado con numeros reales es: "+ x2r );
+
+		} else {
+			double raiz = Math.Sqrt(discriminante);
+			double x1 = (-b + raiz) / (2 * a);
+			double x2 = (-b - raiz) / (2 * a);
+			Console.WriteLine("");
+			Console.WriteLine("El valor de x1 es: "+ x1 );
+			Console.WriteLine("El valor de x2 es: "+ x2 );
+		}
+	}
+
+
+	static void Main()
+	{
+
+		double a, b, c;
+// Leer a, asegurando que no sea 0
+		do {
+			a = ReadNumber("a");
+			if (a == 0) {
+				Console.WriteLine("El valor de 'a' no puede ser 0 en una ecuación cuadrática.");
+
+			}
+		}  while (a == 0);
+		b = ReadNumber("b");
+		c = ReadNumber("c");
+
+		Solucionariofuncioncuadratica(a, b, c);
+
+	}  
+ } 
+} 

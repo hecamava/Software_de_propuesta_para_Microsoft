@@ -1,0 +1,56 @@
+/* Área del triángulo en el lenguaje C# con validador de solo números */
+
+using System;
+using System.Linq;
+using System.Text;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+
+namespace areadeltriangulo
+{
+   public class Program
+   {
+
+static double ReadNumber(string nombre)
+    {
+        double valor;
+        while (true)
+        {
+            Console.Write($"Introduzca el valor de {nombre}(en centimetros): "); // Usamos interpolación de cadenas
+            string input = Console.ReadLine();
+
+            if (double.TryParse(input, out valor))
+            {
+                return valor;
+            }
+            else
+            {
+                Console.WriteLine("El valor ingresado no es un número, por favor introduzca un número válido.");
+            }
+        }
+    }  
+
+
+public static void areadeltriangulo(double la_base,double la_altura)
+
+{
+ double areatri = ((la_base*la_altura)/2);
+ Console.WriteLine("El área del triángulo es: " + areatri + " cm²");                   
+
+}
+
+static void Main()
+{ 
+
+ double la_base;
+ double la_altura;
+ la_base = ReadNumber("la_base");
+ la_altura = ReadNumber("la_altura");
+ areadeltriangulo(la_base,la_altura);
+
+ Console.ReadKey();
+}
+}  
+
+} 

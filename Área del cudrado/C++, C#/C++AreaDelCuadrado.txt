@@ -1,0 +1,38 @@
+/* Área del cuadrado con validador de solo números en el lenguaje de programación C++ */
+#include <iostream>
+#include <cmath>
+#include <limits>
+using namespace std;
+
+// Función para leer y validar un número
+double cin_number(const string& nombre)
+{
+	double valor;
+	while (true) {
+		cout << "Introduzca el valor del " << nombre << "(en centimetros): " <<endl;
+		if (cin >> valor) {
+			return valor;
+		} else {
+			cin.clear(); // limpia el error
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // descarta la entrada inválida
+			cout << "El valor ingresado no es un número, por favor introduzca un número válido." << endl;
+		}
+	}
+}
+
+//Función para resolver el area del cuadrado:
+void areadelcuadrado(double lado)
+{
+	double ac = pow(lado, 2);
+    cout << "El área del cuadrado es: " << ac << " cm²" <<endl;
+}
+
+
+int main()
+{
+	double lado;
+	lado = cin_number("lado");
+	// Resolver la ecuación
+	areadelcuadrado(lado);
+	return 0;
+}

@@ -1,0 +1,60 @@
+/* Área y perímetro del pentágono en el lenguaje de programación C#*/
+
+using System;
+using System.Linq;
+using System.Text;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+
+namespace areaayperimetrodelpentagono
+{
+   public class Program
+   {
+
+static double ReadNumber(string nombre)
+    {
+        double valor;
+        while (true)
+        {
+            Console.Write($"Introduzca el valor de {nombre}(en centímetros): "); // Usamos interpolación de cadenas
+            string input = Console.ReadLine();
+
+            if (double.TryParse(input, out valor))
+            {
+                return valor;
+            }
+            else
+            {
+                Console.WriteLine("El valor ingresado no es un número, por favor introduzca un número válido.");
+            }
+        }
+    }  
+
+
+public static void areaayperimetrodelpentagono(double apotema,double lado)
+
+{
+ double perimetro = 5*lado; 
+ Console.WriteLine("El perímetro del pentágono es: " + perimetro + " cm²");                   
+ 
+ double areapentagono = ((perimetro*apotema)/2);
+ Console.WriteLine("El área del pentágono es: " + areapentagono + " cm²"); 
+
+}
+
+
+static void Main()
+{ 
+
+ double apotema;
+ double lado;
+ apotema = ReadNumber("apotema");
+ lado = ReadNumber("lado");
+ areaayperimetrodelpentagono(apotema,lado);
+
+ Console.ReadKey();
+}
+}  
+
+}  

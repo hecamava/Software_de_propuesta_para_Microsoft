@@ -1,0 +1,47 @@
+/* Area-Altura-y-Perimetro-del-hexágono-en-lenguaje-C++ con solo números*/
+#include <iostream>
+#include <cmath>
+#include <limits>
+using namespace std;
+
+// Función para leer y validar un número
+double cin_number(const string& nombre)
+{
+	double valor;
+	while (true) {
+		cout << "Introduzca el valor del " << nombre << "(en centímetros): "<<endl;
+		if (cin >> valor) {
+			return valor;
+		} else {
+			cin.clear(); // limpia el error
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // descarta la entrada inválida
+			cout << "El valor ingresado no es un número, por favor introduzca un número válido." << endl;
+		}
+	}
+}
+
+
+void areaalturayperimetrodelhexagono(double apotema,double lado)
+{
+	
+	double perimetro = 6*lado;
+	cout << "El perímetro del hexagono es: " << perimetro << " cm²" << endl;
+	double altura = sqrt((pow(lado,2))-(pow(lado/2,2)));
+    cout << "La altura del hexagono es: " << altura << endl;
+	double areahexagono = ((6*lado*apotema)/2);
+    cout << "El área del pentagono es: " << areahexagono << " cm²" << endl;
+}
+
+
+
+int main()
+{
+ 
+	double apotema;
+	double lado;
+	apotema = cin_number("apotema");
+	lado = cin_number("lado");
+	// Resolver la ecuación
+	areaalturayperimetrodelhexagono(apotema,lado);
+	return 0;
+}

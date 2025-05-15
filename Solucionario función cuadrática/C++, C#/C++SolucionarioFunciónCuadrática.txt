@@ -1,0 +1,72 @@
+/**
+Solucionario función cuadrática en el lenguaje de programación C++ con validador de solo números
+**/
+#include <iostream>
+#include <cmath>
+#include <limits>
+using namespace std;
+
+// Función para leer y validar un número
+double cin_number(const string& nombre)
+{
+    double valor;
+    while (true) {
+        cout << "Introduzca el valor de " << nombre << ": ";
+        if (cin >> valor) {
+            return valor;
+        } else {
+            cin.clear(); // limpia el error
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // descarta la entrada inválida
+            cout << "El valor ingresado no es un número, por favor introduzca un número válido." << endl;
+        }
+    }
+}
+
+// Función para resolver ecuación cuadrática
+void Solucfuncioncuadratica(double a, double b, double c)
+{
+    double discriminante = pow(b, 2) - 4 * a * c;
+
+    if (discriminante < 0) {
+        double parte_imaginaria = sqrt(-discriminante);
+        cout << endl;
+        cout << "El valor de x1 expresado con numeros imaginarios es: (-" << b << " + " << parte_imaginaria << "i) / " << (2 * a) << endl;
+        cout << "El valor de x2 expresado con numeros imaginarios es: (-" << b << " - " << parte_imaginaria << "i) / " << (2 * a) << endl;
+        double raiz0 = abs(sqrt(-discriminante));
+        double x1r = (-b + raiz0) / (2 * a);
+        double x2r = (-b - raiz0) / (2 * a);
+        cout << "El valor de x1 expresado con numeros reales es: " << x1r << endl;
+        cout << "El valor de x2 expresado con numeros reales es: " << x2r << endl;
+        
+        
+    } else {
+        double raiz = sqrt(discriminante);
+        double x1 = (-b + raiz) / (2 * a);
+        double x2 = (-b - raiz) / (2 * a);
+        cout << endl;
+        cout << "El valor de x1 es: " << x1 << endl;
+        cout << "El valor de x2 es: " << x2 << endl;
+    }
+}
+
+int main()
+{
+    double a, b, c;
+
+    // Leer a, asegurando que no sea 0
+    do {
+        a = cin_number("a");
+        if (a == 0) {
+            cout << "El valor de 'a' no puede ser 0 en una ecuación cuadrática." << endl;
+        }
+    } while (a == 0);
+
+    // Leer b y c
+    b = cin_number("b");
+    c = cin_number("c");
+
+    // Resolver la ecuación
+    Solucfuncioncuadratica(a, b, c);
+
+    return 0;
+}
